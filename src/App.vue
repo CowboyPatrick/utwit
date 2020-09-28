@@ -1,25 +1,16 @@
 <template>
-  <div id='app'></div>
+  <div id='app'>
+    <userProfile/>
+  </div>
 </template>
 
 <script>
 
+import userProfile from "./components/userProfile"
 
 export default {
   name: 'App',
-  data () {
-    return {
-      followers: 0,
-      user: {
-        id: 1,
-        username: 'Patrick',
-        firstname: 'Patrick',
-        lastname: 'Campbell',
-        email: 'patrick@patrick.com',
-        isAdmin: true
-      }
-    }
-  }
+  components: { userProfile }
 }
 </script>
 
@@ -31,5 +22,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 </style>
