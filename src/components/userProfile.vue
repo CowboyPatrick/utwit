@@ -9,6 +9,11 @@
             <strong>Followers:</strong> {{ followers }}
         </div>
     </div>
+    <div class="user-profile_twit-wrapper">
+        <div class="user-profile_twit" v-for="twit in user.twits" :key="twit.id">
+            {{ twit.content }}
+        </div>
+    </div>
   </div>
 </template>
 
@@ -26,7 +31,11 @@ export default {
         firstname: 'Patrick',
         lastname: 'Campbell',
         email: 'patrick@patrick.com',
-        isAdmin: true
+        isAdmin: true,
+        twits: [
+        {id: 1, content: "Wooow Vue"},
+        {id: 2, content: "Better than react!"}
+        ]
       }
     }
   },
