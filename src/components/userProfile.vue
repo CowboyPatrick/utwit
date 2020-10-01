@@ -21,7 +21,7 @@
 
 
 export default {
-  name: 'App',
+  name: 'userProfile',
   data () {
     return {
       followers: 0,
