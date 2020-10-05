@@ -18,7 +18,7 @@
 </template>
 
 <script>
-
+import twitItem from "./components/twitItem"
 
 export default {
   name: 'userProfile',
