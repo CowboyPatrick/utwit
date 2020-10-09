@@ -1,5 +1,5 @@
 <template>
-    <div class="twit-item">
+    <div class="twit-item" @click="favoriteTwit(twit.id)">
         <div class="user-profile_twit">
             <div class="twit-item_user"> 
                 @{{ username }}
@@ -23,6 +23,11 @@ export default {
         twit: {
             type: Object,
             required: true
+        }
+    },
+    methods: {
+        favoriteTwit(id) {
+            this.$emit('favorite', id)
         }
     }
 };

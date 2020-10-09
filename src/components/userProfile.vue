@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="user-profile_twit-wrapper">
-      <twitItem class="user-profile_twit" v-for="twit in user.twits" :key="twit.id" :username="user.username" :twit="twit"/>
+      <twitItem class="user-profile_twit" v-for="twit in user.twits" :key="twit.id" :username="user.username" :twit="twit" @favorite="toggleFavorite"/>
     </div>
   </div>
 </template>
@@ -46,6 +46,9 @@ export default {
   methods: {
     followUser() {
       this.followers++
+    },
+    toggleFavorite(id){
+      console.log(`Favorited Twit #${id}`)
     }
   },
   watch: {
