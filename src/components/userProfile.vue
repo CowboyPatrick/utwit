@@ -98,34 +98,39 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .user-profile {
     display: grid;
     grid-template-columns: 1fr 3fr;
     width: 100%;
     padding: 50px 5%;
     margin: 0 auto;
-}
 
-.user-profile_user-panel {
-    display: flex;
-    flex-direction: column;
-    margin-right: 50px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    border: 1px solid orangered;
-}
 
-h1 {
-    margin: 0;
-}
+  .user-profile_user-panel {
+      display: flex;
+      flex-direction: column;
+      margin-right: 50px;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      border: 1px solid orangered;
+  }
 
-.user-profile_admin-badge{
-    background-color: pink;
-    color: green;
-    font-weight: bold;
-    padding: 4px;
-    border-radius: 4px;
+  h1 {
+      margin: 0;
+  }
+
+  .user-profile_admin-badge{
+      background-color: pink;
+      color: green;
+      font-weight: bold;
+      padding: 4px;
+      border-radius: 4px;
+  }
+  .user-profile_twit-wrapper{
+    display: grid;
+    gap: 10px;
+  }
 }
 </style>
