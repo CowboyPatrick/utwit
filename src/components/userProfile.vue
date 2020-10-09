@@ -8,9 +8,28 @@
         <div class="user-profile_follower-count">
             <strong>Followers:</strong> {{ followers }}
         </div>
+        <form class="user-profile_create-form" @submit.prevent="createNewTwit">
+          <label for="newTwit"><strong>New Twits</strong></label>
+          <textarea id="newTwit" cols="30" rows="4" v-model="newTwitContent"></textarea>
+          
+          <div class="user-profile_create-twit-type">
+            <label for="newTwitType"><strong>Type: </strong></label>
+            <select id="newTwitType" v-model="selectedTwitType">
+              <option :value="option.value" v-for="(option, index) in twitTypes" :key="index">
+                  {{ option.name }}
+              </option>
+            </select>
+          </div>
+          <button>Tweet</button>
+        </form>
     </div>
     <div class="user-profile_twit-wrapper">
-      <twitItem class="user-profile_twit" v-for="twit in user.twits" :key="twit.id" :username="user.username" :twit="twit" @favorite="toggleFavorite"/>
+      <twitItem 
+      v-for="twit in user.twits" 
+      :key="twit.id" 
+      :username="user.username" 
+      :twit="twit" 
+      @favorite="toggleFavorite"/>
     </div>
   </div>
 </template>
@@ -23,6 +42,12 @@ export default {
   components: { twitItem },
   data () {
     return {
+      newTwitContent: '',
+      selectedTwitType: 'instant',
+      twitTypes: [
+        {value: 'draft', name: 'Draft'},
+        {value: 'instant', name: 'Instant Twit'}
+      ],
       followers: 0,
       user: {
         id: 1,
@@ -49,6 +74,15 @@ export default {
     },
     toggleFavorite(id){
       console.log(`Favorited Twit #${id}`)
+    },
+    createNewTwit() {
+      if (this.newTwitContent && this.selectedTwitType !== 'draft'){
+        this.user.twits.unshift({
+          id: this.user.twits.length +1,
+          content: this.newTwitContent
+        })
+        this.newTwitContent = ''
+      }
     }
   },
   watch: {
@@ -70,6 +104,7 @@ export default {
     grid-template-columns: 1fr 3fr;
     width: 100%;
     padding: 50px 5%;
+    margin: 0 auto;
 }
 
 .user-profile_user-panel {
