@@ -10,9 +10,7 @@
         </div>
     </div>
     <div class="user-profile_twit-wrapper">
-        <div class="user-profile_twit" v-for="twit in user.twits" :key="twit.id">
-            {{ twit.content }}
-        </div>
+      <twitItem class="user-profile_twit" v-for="twit in user.twits" :key="twit.id" :username="user.username" :twit="twit"/>
     </div>
   </div>
 </template>
