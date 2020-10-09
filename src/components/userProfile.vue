@@ -16,10 +16,11 @@
 </template>
 
 <script>
-import twitItem from "./components/twitItem"
+import twitItem from "./twitItem";  
 
 export default {
   name: 'userProfile',
+  components: { twitItem },
   data () {
     return {
       followers: 0,
